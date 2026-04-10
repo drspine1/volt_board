@@ -9,15 +9,17 @@ interface NavItemProps {
   label: string;
   icon: LucideIcon;
   collapsed?: boolean;
+  onClick?: () => void;
 }
 
-export function NavItem({ href, label, icon: Icon, collapsed }: NavItemProps) {
+export function NavItem({ href, label, icon: Icon, collapsed, onClick }: NavItemProps) {
   const pathname = usePathname();
   const active = pathname === href;
 
   return (
     <Link
       href={href}
+      onClick={onClick}
       className={cn(
         "flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors",
         active

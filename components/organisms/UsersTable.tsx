@@ -51,23 +51,28 @@ export function UsersTable() {
   return (
     <div className="rounded-xl border border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-900">
       {/* Header */}
-      <div className="flex items-center justify-between border-b border-zinc-200 p-4 dark:border-zinc-800">
-        <p className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
-          All Users <span className="ml-1 text-xs font-normal text-zinc-400">({filtered.length})</span>
-        </p>
-        <div className="flex items-center gap-2">
+      <div className="flex flex-col gap-3 border-b border-zinc-200 p-4 dark:border-zinc-800 sm:flex-row sm:items-center sm:justify-between sm:gap-0">
+        <div className="flex flex-wrap items-center gap-2">
+          <p className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+            All Users <span className="ml-1 text-xs font-normal text-zinc-400">({filtered.length})</span>
+          </p>
+        </div>
+
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-2">
           <Can role="editor">
-            <button className="flex items-center gap-1.5 rounded-lg border border-zinc-200 px-3 py-1.5 text-xs font-medium text-zinc-600 transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-400 dark:hover:bg-zinc-800">
-              <Download size={13} /> Export CSV
+            <button className="w-full rounded-lg border border-zinc-200 px-3 py-1.5 text-xs font-medium text-zinc-600 transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-400 dark:hover:bg-zinc-800 sm:w-auto">
+              <span className="inline-flex items-center gap-1.5">
+                <Download size={13} /> Export CSV
+              </span>
             </button>
           </Can>
-          <div className="relative">
+          <div className="relative w-full sm:w-72">
             <Search size={14} className="absolute left-2.5 top-1/2 -translate-y-1/2 text-zinc-400" />
             <input
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search users..."
-              className="h-8 rounded-lg border border-zinc-200 bg-zinc-50 pl-8 pr-3 text-xs text-zinc-900 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-100"
+              className="h-10 w-full rounded-lg border border-zinc-200 bg-zinc-50 pl-10 pr-3 text-xs text-zinc-900 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-100"
             />
           </div>
         </div>

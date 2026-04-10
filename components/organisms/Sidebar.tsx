@@ -59,7 +59,14 @@ export function Sidebar() {
         {/* Nav — filtered by role */}
         <nav className="flex-1 space-y-1 overflow-y-auto p-3">
           {visibleNav.map((item) => (
-            <NavItem key={item.href} href={item.href} label={item.label} icon={item.icon} collapsed={!sidebarOpen} />
+            <NavItem
+              key={item.href}
+              href={item.href}
+              label={item.label}
+              icon={item.icon}
+              collapsed={!sidebarOpen}
+              onClick={() => setSidebarOpen(false)}
+            />
           ))}
         </nav>
 
