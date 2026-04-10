@@ -1,7 +1,7 @@
 import type { ActivityEvent, KpiMetric, RevenueDataPoint, User, UserDataPoint } from "@/lib/types";
 
 export const REFETCH_ACTIVITY_MS = 8_000;
-export const REFETCH_DASHBOARD_MS = 15_000;
+export const REFETCH_DASHBOARD_MS = 30_000;
 
 export function realtimeQueryOptions(visible: boolean, intervalMs: number) {
   return {

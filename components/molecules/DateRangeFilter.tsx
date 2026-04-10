@@ -21,7 +21,7 @@ export function DateRangeFilter() {
   useEffect(() => {
     const param = searchParams.get("range") as DateRange | null;
     if (param && ["7d", "30d", "ytd"].includes(param)) setDateRange(param);
-  }, []);
+  }, [searchParams, setDateRange]);
 
   function handleChange(value: DateRange) {
     setDateRange(value);
@@ -31,7 +31,7 @@ export function DateRangeFilter() {
   }
 
   return (
-    <div className="flex items-center gap-1 rounded-lg border border-zinc-200 bg-white p-1 dark:border-zinc-700 dark:bg-zinc-900">
+    <div className="flex items-center gap-1 rounded-lg border border-zinc-200 bg-white p-1 dark:border-zinc-700 dark:bg-zinc-900" role="group" aria-label="Date range filter">
       {options.map((o) => (
         <button
           key={o.value}
@@ -42,6 +42,7 @@ export function DateRangeFilter() {
               ? "bg-indigo-600 text-white"
               : "text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
           )}
+          aria-pressed={dateRange === o.value}
         >
           {o.label}
         </button>

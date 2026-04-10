@@ -22,6 +22,9 @@ export function UserMenu() {
       <button
         onClick={() => setOpen((v) => !v)}
         className="flex items-center gap-2 rounded-lg px-2 py-1.5 text-sm transition-colors hover:bg-zinc-100 dark:hover:bg-zinc-800"
+        aria-expanded={open}
+        aria-haspopup="menu"
+        aria-label="User menu"
       >
         <div className="flex h-7 w-7 items-center justify-center rounded-full bg-indigo-600 text-xs font-semibold text-white">
           {user.name[0]}
@@ -35,7 +38,7 @@ export function UserMenu() {
           <div className="fixed inset-0 z-10" onClick={() => setOpen(false)} />
           <div className={cn(
             "absolute right-0 top-full z-20 mt-1 w-52 rounded-xl border border-zinc-200 bg-white py-1 shadow-lg dark:border-zinc-700 dark:bg-zinc-900"
-          )}>
+          )} role="menu">
             <div className="border-b border-zinc-100 px-3 py-2 dark:border-zinc-800">
               <p className="text-xs font-medium text-zinc-900 dark:text-zinc-100">{user.name}</p>
               <p className="text-xs text-zinc-500">{user.email}</p>
@@ -43,12 +46,13 @@ export function UserMenu() {
                 {user.role}
               </span>
             </div>
-            <a href="/dashboard/settings" className="flex items-center gap-2 px-3 py-2 text-sm text-zinc-600 hover:bg-zinc-50 dark:text-zinc-400 dark:hover:bg-zinc-800">
+            <a href="/dashboard/settings" className="flex items-center gap-2 px-3 py-2 text-sm text-zinc-600 hover:bg-zinc-50 dark:text-zinc-400 dark:hover:bg-zinc-800" role="menuitem">
               <Settings size={14} /> Settings
             </a>
             <button
               onClick={handleLogout}
               className="flex w-full items-center gap-2 px-3 py-2 text-sm text-red-600 hover:bg-zinc-50 dark:hover:bg-zinc-800"
+              role="menuitem"
             >
               <LogOut size={14} /> Sign out
             </button>

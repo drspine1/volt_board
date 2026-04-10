@@ -46,7 +46,9 @@ export function UsersTable() {
   const paginated = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
   // Reset to page 1 on search
-  useEffect(() => { setPage(1); }, [query]);
+  useEffect(() => {
+    setPage(1);
+  }, [query]);
 
   return (
     <div className="rounded-xl border border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-900">

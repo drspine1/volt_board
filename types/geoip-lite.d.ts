@@ -9,5 +9,7 @@ declare module "geoip-lite" {
     zip: number;
   }
   function lookup(ip: string): Lookup | null;
-  export default { lookup };
+import geoip from "geoip-lite";
+
+export default geoip;
 }
